@@ -21,6 +21,9 @@ require([ 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js' ], functio
 
     };
 
+    nrl2html.nrl_base_url = "NRL";
+     //nrl2html.nrl_base_url = "http://www.iris.edu/NRL";
+
     nrl2html.questionToJson = function(url, callback) {
         console.log("try: " + url);
         d3.text(url, "text/plain", function(error, data) {
@@ -411,8 +414,7 @@ require([ 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js' ], functio
         }
     }
 
-    nrl2html.questionToJson("NRL/index.txt", nrl2html.treeGraph);
-     //nrl2html.questionToJson("http://www.iris.edu/NRL/dataloggers/reftek/rt130.txt", nrl2html.treeGraph);
+    nrl2html.questionToJson(nrl2html.nrl_base_url+"/index.txt", nrl2html.treeGraph);
 
     function pullParam(val) {
         var es = val.indexOf("=");
